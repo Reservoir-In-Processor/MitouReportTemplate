@@ -1,0 +1,43 @@
+name: compile and upload
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    container: kasano/ripreport
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+
+      - name: Set up variables
+        id: vars
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
+          echo "::set-output name=sha::$(git rev-parse --short HEAD)"
+
+      - name: Build
+        run: |
+          make
+          mv main.pdf main-${{ steps.vars.outputs.tag }}.pdf
+
+      - name: Create a release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          files: |
+            main-${{ steps.vars.outputs.tag }}.pdf
+
+      - name: dump a main.log
+        if: failure()
+        run: cat main.log
