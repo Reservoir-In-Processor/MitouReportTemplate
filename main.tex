@@ -1,0 +1,33 @@
+\documentclass[10pt, a4paper, titlepage]{mitou}
+\usepackage{mypackage}
+
+
+\begin{document}
+\title{
+title of this report
+}
+\jozai{YYYY情財第XXX号}
+\author{
+\begin{tabular}[t]{r@{}l}
+    \makebox[3zw][l]{氏名：}
+    &a0\\
+    &a1\\
+    &a2\\
+    &a3
+\end{tabular}
+}
+\projectmanager{name of PM}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\include{sec/1} \clearpage
+\include{sec/2} \clearpage
+
+\bibliographystyle{jIEEEtran}
+\bibliography{ref/ref}
+
+\end{document}
+

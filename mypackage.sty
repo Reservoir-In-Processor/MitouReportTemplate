@@ -1,0 +1,53 @@
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\usepackage{tablefootnote}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{cite}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{bbm}
+\usepackage[T1]{fontenc}
+\usepackage[stable]{footmisc}
+
+
+% 「%」は以降の内容を「改行コードも含めて」無視するコマンド
+\usepackage[%
+ dvipdfmx,% 欧文ではコメントアウトする
+ setpagesize=false,%
+ bookmarks=false,%
+ bookmarksdepth=tocdepth,%
+ bookmarksnumbered=true,%
+ colorlinks=false,%
+ hidelinks,
+%  linkcolor=blue,%
+ pdftitle={},%
+ pdfsubject={},%
+ pdfauthor={},%
+ pdfkeywords={}%
+]{hyperref}
+
+% PDFのしおり機能の日本語文字化けを防ぐ((u)pLaTeXのときのみかく)
+
+\usepackage{pxjahyper}
+
+
+\newcommand{\argmax}{\mathop{\rm argmax}\limits}
+\newcommand{\figref}[1]{図 \ref{#1}}
+\newcommand{\secref}[1]{\ref{#1} 節}
+\newcommand{\tabref}[1]{表 \ref{#1}}
+\newcommand{\Algref}[1]{アルゴリズム \ref{#1}}
+
+
+% prevent hyphenation
+\hyphenpenalty=100\relax
+\exhyphenpenalty=100\relax
+\sloppy
