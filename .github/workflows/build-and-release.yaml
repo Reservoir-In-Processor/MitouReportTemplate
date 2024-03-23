@@ -28,7 +28,6 @@ jobs:
       - name: Build
         run: |
           make
-          make -C detail/
           mv main.pdf main-${{ steps.vars.outputs.tag }}.pdf
 
       - name: Create a release
