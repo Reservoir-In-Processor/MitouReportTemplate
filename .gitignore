@@ -1,0 +1,12 @@
+*.aux
+*.dvi
+*.bbl
+*.blg
+*.log
+*.toc
+.vscode
+*.out
+*.gz
+.DS_Store
+main.pdf
+detail.pdf
